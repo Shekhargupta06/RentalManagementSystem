@@ -1,0 +1,38 @@
+<app-header></app-header>
+<!-- <p >category works!</p> -->
+<h4 class="Equipment">Equipment Catalog</h4>
+<ng-container *ngIf="locType">
+<div class="row" *ngFor="let branch of locationData?.branches">
+    <div class="col-md-3" *ngFor="let category of branch.categories">
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="../../assets/Images/category/{{category.image}}" alt="Card image cap">
+                <div class="card-body">
+                    <!-- <h5 class="card-title">Card title</h5> -->
+                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p> -->
+                </div>
+                <div class="card-footer" (click)="selectedCategory(category)">
+                    <small class="text-muted">{{category.name}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</ng-container>
+<ng-container>
+<div class="row" *ngIf="!locType">
+    <div class="col-md-3" *ngFor="let category of categoryData.categories">
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="../../assets/Images/category/{{category.image}}" alt="Card image cap">
+                <div class="card-body">
+                </div>
+                <div class="card-footer" (click)="selectedCategory(category)">
+                    <small class="text-muted">{{category.name}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</ng-container>  

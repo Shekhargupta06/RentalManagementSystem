@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">RENTAL MANAGEMENT SYSTEM </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <!-- <a class="nav-link" >Events</a> -->
+        </li>
+        <li class="nav-item">
+          <!-- <a class="nav-link" >Select</a> -->
+          <!-- <button mat-button  (mouseenter)="openMyMenu()" [matMenuTriggerFor]="animals">Animal index</button> -->
+          <button mat-raised-button (mouseenter)="openMyMenu()" [matMenuTriggerFor]="states" >Select</button>
+          <mat-menu #states="matMenu">
+            <ng-container *ngFor="let location of products?.data?.locations">
+              <button mat-menu-item (click)="selectedLocation(location,'locationType')"  [matMenuTriggerFor]="branches" >{{location.name}}</button>
+              <mat-menu #branches="matMenu">
+                  <button (click)="selectedLocation(branch,'branchType')" *ngFor="let branch of location.branches" mat-menu-item >{{branch.name}}</button>                
+              </mat-menu>
+            </ng-container>
+          </mat-menu>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+          <!-- <a class="nav-link" >Select</a> -->
+          <!-- <a class="nav-link" >Register</a>
+          <a class="nav-link" style="cursor:pointer" >Logout</a>         -->
+      </ul>
+    </div>
+</nav>

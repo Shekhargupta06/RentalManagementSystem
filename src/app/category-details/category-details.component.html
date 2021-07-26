@@ -1,0 +1,16 @@
+<app-header></app-header>
+<h4 class="Equipment"><span (click)="backPrevious()" class="EQP">Equipment Catalog</span>/{{categoryName}}</h4>
+<div class="row" >
+    <div class="col-md-3" *ngFor="let subCategory of subCategoryData?.subcategories">
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="../../assets/Images/category/subcategory/{{subCategory.image}}" alt="Card image cap">
+                <div class="card-body">
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{subCategory.name}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
